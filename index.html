@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devmark - AI Web Apps & Custom Design</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Oswald:wght@500;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --copper: #c48c6a;
+            --copper-light: #d9a882;
+            --dark-blue: #1e2a3a;
+            --teal: #198c8c;
+            --teal-glow: rgba(25,140,140,0.4);
+            --dark-bg: #0d0f12;
+            --card-bg: #111518;
+            --light-text: #c8d0da;
+            --white: #ffffff;
+            --font-main: 'Montserrat', sans-serif;
+            --font-headings: 'Oswald', sans-serif;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--dark-bg); }
+        ::-webkit-scrollbar-thumb { background: var(--teal); border-radius: 3px; }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            margin: 0;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-headings);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--copper);
+        }
+
+        a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
+        ul { list-style: none; padding: 0; margin: 0; }
+
+        /* SCROLL PROGRESS */
+        #progress-bar {
+            position: fixed;
+            top: 0; left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--teal), var(--copper));
+            width: 0%;
+            z-index: 9999;
+            transition: width 0.1s linear;
+        }
+
+        /* HEADER */
+        header {
+            background: rgba(13, 15, 18, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 12px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(196, 140, 106, 0.12);
+            transition: padding 0.3s ease;
+        }
+
+        header.scrolled { padding: 8px 0; }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .container {
+            width: 88%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo { display: flex; align-items: center; gap: 12px; }
+        .logo-img { height: 46px; width: auto; border-radius: 50%; }
+        .logo span {
+            font-family: var(--font-headings);
+            font-size: 1.75rem;
+            color: var(--white);
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        /* DESKTOP NAV */
+        nav ul { display: flex; gap: 28px; }
+        nav a {
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            position: relative;
+            padding-bottom: 4px;
+        }
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 0; height: 2px;
+            background: var(--copper);
+            transition: width 0.3s ease;
+        }
+        nav a:hover::after, nav a.active::after { width: 100%; }
+        nav a:hover, nav a.active { color: var(--copper); }
+
+        /* HAMBURGER */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1100;
+        }
+        .hamburger span {
+            display: block;
+            width: 25px; height: 2px;
+            background: var(--light-text);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        /* MOBILE NAV */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(9,11,13,0.97);
+            z-index: 1050;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 35px;
+        }
+        .mobile-nav.open { display: flex; }
+        .mobile-nav a {
+            font-family: var(--font-headings);
+            font-size: 2rem;
+            color: var(--light-text);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: color 0.3s ease;
+        }
+        .mobile-nav a:hover { color: var(--copper); }
+
+        /* HERO */
+        #hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #hero-canvas {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 1;
+        }
+
+        #hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        #hero h1 {
+            font-size: 5rem;
+            color: var(--white);
+            margin: 0 0 8px 0;
+            letter-spacing: 4px;
+            text-shadow: 0 0 40px rgba(25,140,140,0.3);
+        }
+
+        .hero-tagline {
+            font-family: var(--font-headings);
+            font-size: 1.1rem;
+            color: var(--copper);
+            font-weight: 400;
+            margin-bottom: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .typewriter-wrap {
+            font-family: var(--font-headings);
+            font-size: 1.5rem;
+            color: var(--teal);
+            min-height: 2rem;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+        }
+
+        #typewriter::after {
+            content: '|';
+            animation: blink 0.8s infinite;
+            color: var(--copper);
+        }
+
+        @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
+
+        /* BTN */
+        .btn {
+            display: inline-block;
+            padding: 14px 38px;
+            background-color: var(--teal);
+            color: var(--white);
+            border: 2px solid var(--teal);
+            font-family: var(--font-headings);
+            text-transform: uppercase;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            border-radius: 2px;
+        }
+        .btn:hover {
+            background: transparent;
+            color: var(--teal);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(25,140,140,0.25);
+        }
+        .btn-outline {
+            background: transparent;
+            border-color: var(--copper);
+            color: var(--copper);
+        }
+        .btn-outline:hover {
+            background: var(--copper);
+            color: var(--dark-bg);
+            box-shadow: 0 8px 25px rgba(196,140,106,0.25);
+        }
+        .btn-stripe { background: #635bff; border-color: #635bff; }
+        .btn-stripe:hover { color: #635bff; background: transparent; box-shadow: 0 8px 25px rgba(99,91,255,0.3); }
+
+        /* STATS */
+        #stats {
+            padding: 70px 0;
+            background: linear-gradient(135deg, #0f1215 0%, #111820 100%);
+            border-top: 1px solid rgba(25,140,140,0.1);
+            border-bottom: 1px solid rgba(25,140,140,0.1);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+
+        .stat-item { padding: 20px; }
+
+        .stat-number {
+            font-family: var(--font-headings);
+            font-size: 3.5rem;
+            color: var(--teal);
+            line-height: 1;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--copper);
+            font-weight: 600;
+        }
+
+        /* SECTIONS */
+        #services, #portfolio, #contact { padding: 110px 0; }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #6b7a8d;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 65px;
+            display: block;
+        }
+
+        /* SERVICE CARDS */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            padding: 40px 35px;
+            border-radius: 8px;
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(196, 140, 106, 0.06);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--teal), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(25,140,140,0.3);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4), 0 0 30px rgba(25,140,140,0.08);
+        }
+
+        .service-card:hover::before { opacity: 1; }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--teal);
+            margin-bottom: 22px;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover .service-icon { transform: scale(1.1); }
+
+        .service-card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 12px;
+            color: var(--copper);
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            color: #8a97a8;
+            line-height: 1.7;
+        }
+
+        .service-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .price-tag {
+            color: var(--copper);
+            font-weight: 700;
+            font-family: var(--font-headings);
+            font-size: 1.3rem;
+        }
+
+        /* PRICING */
+        #pricing {
+            padding: 110px 0;
+            background: #0a0c0f;
+            position: relative;
+        }
+
+        #pricing::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(ellipse at center, rgba(25,140,140,0.04) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .pricing-card {
+            max-width: 680px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 50px 50px 45px;
+            border-radius: 12px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 12px;
+            padding: 2px;
+            background: linear-gradient(135deg, var(--copper), var(--teal), var(--copper));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            animation: gradientBorder 4s linear infinite;
+            background-size: 200% 200%;
+        }
+
+        @keyframes gradientBorder {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: 22px; right: -32px;
+            background: var(--teal);
+            color: white;
+            padding: 5px 45px;
+            transform: rotate(45deg);
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            font-family: var(--font-headings);
+        }
+
+        .pricing-card h3 {
+            color: var(--white);
+            font-size: 2.4rem;
+            letter-spacing: 2px;
+            margin-bottom: 6px;
+        }
+
+        .pricing-subtitle {
+            color: var(--copper);
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 35px;
+            display: block;
+        }
+
+        .pricing-features {
+            text-align: left;
+            margin-bottom: 40px;
+            display: inline-block;
+        }
+
+        .pricing-features li {
+            margin-bottom: 14px;
+            font-size: 0.9rem;
+            color: var(--light-text);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .pricing-features li i {
+            color: var(--teal);
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        .pricing-price {
+            font-size: 4rem;
+            color: var(--white);
+            margin-bottom: 30px;
+            font-family: var(--font-headings);
+            line-height: 1;
+        }
+
+        .pricing-price span {
+            font-size: 1rem;
+            color: #666;
+            font-weight: 400;
+        }
+
+        /* PORTFOLIO */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 25px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            aspect-ratio: 16 / 9;
+            background: #14171a;
+            border: 1px solid rgba(196, 140, 106, 0.08);
+            cursor: pointer;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .portfolio-item:hover img { transform: scale(1.08); }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to top, rgba(10,15,20,0.95) 0%, rgba(10,15,20,0.6) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-start;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            padding: 28px;
+        }
+
+        .portfolio-item:hover .portfolio-overlay { opacity: 1; }
+
+        .portfolio-overlay h3 {
+            font-size: 1.2rem;
+            margin-bottom: 4px;
+            color: var(--white);
+        }
+
+        .portfolio-overlay p {
+            font-size: 0.78rem;
+            color: var(--teal);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+        }
+
+        /* CONTACT */
+        #contact { background: #0a0c0f; }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .contact-info h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            color: #8a97a8;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 35px;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .contact-detail-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-size: 0.9rem;
+        }
+
+        .contact-detail-item i {
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            border: 1px solid rgba(196,140,106,0.3);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--copper);
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .contact-cta {
+            background: var(--card-bg);
+            border: 1px solid rgba(196,140,106,0.12);
+            border-radius: 10px;
+            padding: 45px 40px;
+            text-align: center;
+        }
+
+        .contact-cta h3 {
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+        }
+
+        .contact-cta p {
+            color: #6b7a8d;
+            font-size: 0.88rem;
+            margin-bottom: 28px;
+        }
+
+        /* FADE IN */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+        }
+        .fade-in-up.active { opacity: 1; transform: translateY(0); }
+
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+
+        /* FLOATING BUTTON */
+        .fab-btn {
+            position: fixed;
+            bottom: 35px;
+            right: 35px;
+            width: 56px; height: 56px;
+            border-radius: 50%;
+            background: var(--teal);
+            color: white;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem;
+            z-index: 900;
+            box-shadow: 0 4px 20px rgba(25,140,140,0.5);
+            transition: all 0.3s ease;
+        }
+        .fab-btn:hover {
+            transform: scale(1.1) translateY(-3px);
+            box-shadow: 0 8px 30px rgba(25,140,140,0.6);
+            color: white;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #060708;
+            padding: 50px 0 30px;
+            border-top: 1px solid rgba(196,140,106,0.08);
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding-bottom: 30px;
+            margin-bottom: 30px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-logo span {
+            font-family: var(--font-headings);
+            font-size: 1.5rem;
+            color: var(--white);
+            letter-spacing: 2px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #555;
+        }
+
+        .footer-links a:hover { color: var(--copper); }
+
+        .footer-bottom {
+            text-align: center;
+            font-size: 0.78rem;
+            color: #444;
+        }
+
+        /* LIGHTBOX */
+        .lightbox-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.95);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+        .lightbox-overlay.active { display: flex; }
+        .lightbox-overlay img {
+            max-width: 90%;
+            max-height: 85vh;
+            border: 1px solid rgba(196,140,106,0.3);
+            border-radius: 4px;
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 20px; right: 25px;
+            color: #888;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .lightbox-close:hover { color: var(--copper); }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .contact-wrapper { grid-template-columns: 1fr; gap: 40px; }
+            .stats-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        }
+
+        @media (max-width: 768px) {
+            nav { display: none; }
+            .hamburger { display: flex; }
+
+            #hero h1 { font-size: 3rem; }
+            .hero-tagline { font-size: 0.85rem; }
+            .typewriter-wrap { font-size: 1.1rem; }
+
+            .section-title { font-size: 2rem; }
+
+            .container { width: 92%; padding: 0 15px; }
+
+            .services-grid,
+            .portfolio-grid { grid-template-columns: 1fr; gap: 20px; }
+
+            .service-card { padding: 28px 24px; }
+
+            .pricing-card { padding: 35px 25px 30px; }
+            .pricing-card h3 { font-size: 1.8rem; }
+            .pricing-price { font-size: 3rem; }
+
+            .stats-grid { grid-template-columns: repeat(3, 1fr); }
+            .stat-number { font-size: 2.4rem; }
+
+            .footer-inner { flex-direction: column; text-align: center; }
+            .footer-links { flex-wrap: wrap; justify-content: center; }
+        }
+
+        @media (max-width: 480px) {
+            #hero h1 { font-size: 2.4rem; letter-spacing: 2px; }
+            .logo span { font-size: 1.4rem; }
+            .btn { padding: 12px 26px; font-size: 0.85rem; }
+            .stats-grid { grid-template-columns: repeat(3,1fr); gap: 5px; }
+            .stat-number { font-size: 2rem; }
+            .stat-label { font-size: 0.65rem; }
+            .fab-btn { width: 50px; height: 50px; bottom: 25px; right: 20px; }
+            .pricing-card { padding: 30px 18px 25px; }
+            .section-title { font-size: 1.75rem; }
+            .contact-cta { padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="progress-bar"></div>
+
+    <!-- MOBILE NAV OVERLAY -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="#hero" class="mobile-link">Αρχική</a>
+        <a href="#services" class="mobile-link">Υπηρεσίες</a>
+        <a href="#pricing" class="mobile-link">Πακέτα</a>
+        <a href="#portfolio" class="mobile-link">Έργα</a>
+        <a href="#contact" class="mobile-link">Επικοινωνία</a>
+    </div>
+
+    <header id="header">
+        <div class="container">
+            <a href="#hero" class="logo">
+                <img src="devmarklogo.png" alt="Devmark Logo" class="logo-img">
+                <span>DEVMARK</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#hero">Αρχική</a></li>
+                    <li><a href="#services">Υπηρεσίες</a></li>
+                    <li><a href="#pricing">Πακέτα</a></li>
+                    <li><a href="#portfolio">Έργα</a></li>
+                    <li><a href="#contact">Επικοινωνία</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section id="hero">
+        <canvas id="hero-canvas"></canvas>
+        <div class="container">
+            <p class="hero-tagline fade-in-up">Ψηφιακή Παρουσία · Τεχνολογία · Αποτελέσματα</p>
+            <h1 class="fade-in-up delay-1">Devmark</h1>
+            <div class="typewriter-wrap fade-in-up delay-2">
+                <span id="typewriter"></span>
+            </div>
+            <a href="#contact" class="btn fade-in-up delay-3">ΕΠΙΚΟΙΝΩΝΗΣΤΕ</a>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <section id="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item fade-in-up">
+                    <span class="stat-number" data-target="15">0</span>
+                    <span class="stat-label">Έργα</span>
+                </div>
+                <div class="stat-item fade-in-up delay-1">
+                    <span class="stat-number" data-target="10">0</span>
+                    <span class="stat-label">Ικανοποιημένοι Πελάτες</span>
+                </div>
+                <div class="stat-item fade-in-up delay-2">
+                    <span class="stat-number" data-target="3">0</span>
+                    <span class="stat-label">Χρόνια Εμπειρίας</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+        <div class="container">
+            <h2 class="section-title fade-in-up">Υπηρεσίες</h2>
+            <span class="section-subtitle fade-in-up">Τι μπορούμε να κάνουμε για σένα</span>
+            <div class="services-grid">
+                <div class="service-card fade-in-up">
+                    <i class="fas fa-brain service-icon"></i>
+                    <h3>AI Web Applications</h3>
+                    <p>Εξειδικευμένες εφαρμογές με ενσωμάτωση Τεχνητής Νοημοσύνης για την αυτοματοποίηση της επιχείρησής σου.</p>
+                    <div class="service-card-footer">
+                        <div class="price-tag">από €300</div>
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=webdevmarkozanis@gmail.com&su=Ενδιαφέρον για AI Web Applications" target="_blank" class="btn" style="padding: 9px 16px; font-size: 0.7rem;">ΕΝΔΙΑΦΕΡΟΜΑΙ</a>
+                    </div>
+                </div>
+                <div class="service-card fade-in-up delay-1">
+                    <i class="fas fa-desktop service-icon"></i>
+                    <h3>Κατασκευή Ιστοσελίδας</h3>
+                    <p>Σχεδιασμός υψηλής αισθητικής και ταχύτητας, πλήρως προσαρμοσμένος στις ανάγκες σου.</p>
+                    <div class="service-card-footer">
+                        <div class="price-tag">από €299</div>
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=webdevmarkozanis@gmail.com&su=Ενδιαφέρον για Κατασκευή Ιστοσελίδας" target="_blank" class="btn" style="padding: 9px 16px; font-size: 0.7rem;">ΕΝΔΙΑΦΕΡΟΜΑΙ</a>
+                    </div>
+                </div>
+                <div class="service-card fade-in-up delay-2">
+                    <i class="fas fa-pen-nib service-icon"></i>
+                    <h3>Branding &amp; Logo</h3>
+                    <p>Δημιουργία εταιρικής ταυτότητας και επαγγελματικού λογοτύπου που ξεχωρίζει.</p>
+                    <div class="service-card-footer">
+                        <div class="price-tag">από €35</div>
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=webdevmarkozanis@gmail.com&su=Ενδιαφέρον για Branding & Logo" target="_blank" class="btn" style="padding: 9px 16px; font-size: 0.7rem;">ΕΝΔΙΑΦΕΡΟΜΑΙ</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing">
+        <div class="container">
+            <h2 class="section-title fade-in-up">Ολοκληρωμένη Υποστήριξη</h2>
+            <span class="section-subtitle fade-in-up">Μηνιαία συνδρομή — ό,τι χρειάζεται η επιχείρησή σου</span>
+            <div class="pricing-card fade-in-up">
+                <div class="pricing-badge">ΔΗΜΟΦΙΛΕΣ</div>
+                <h3>SCALE UP PRO</h3>
+                <span class="pricing-subtitle">Ολοκληρωμένο οικοσύστημα για την ψηφιακή σου κυριαρχία</span>
+                <ul class="pricing-features">
+                    <li>
+                        <i class="fas fa-check"></i>
+                        <span><strong>Hosting &amp; Domain:</strong> Φιλοξενία ιστοσελίδας ή εφαρμογής σου και αγορά domain.</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-check"></i>
+                        <span><strong>Τεχνική Συντήρηση:</strong> Μικρές αλλαγές, Backups και πλήρης ασφάλεια.</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-check"></i>
+                        <span><strong>Google Search Console:</strong> Παρακολούθηση και Verification για μέγιστη ορατότητα.</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-check"></i>
+                        <span><strong>Google Ads:</strong> Στρατηγική διαχείριση διαφημίσεων για άμεση αύξηση επισκεψιμότητας.</span>
+                    </li>
+                </ul>
+                <div class="pricing-price">€149<span>/μήνα</span></div>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=webdevmarkozanis@gmail.com&su=Ενδιαφέρον για το Πακέτο Scale Up Pro" target="_blank" class="btn btn-stripe" style="width: 85%; padding: 18px;">
+                    <i class="fab fa-stripe" style="margin-right: 10px; font-size: 1.3rem;"></i> ΕΝΑΡΞΗ ΤΩΡΑ
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio">
+        <div class="container">
+            <h2 class="section-title fade-in-up">Έργα μας</h2>
+            <span class="section-subtitle fade-in-up">Δουλειές που μιλούν από μόνες τους</span>
+            <div class="portfolio-grid">
+                <div class="portfolio-item fade-in-up">
+                    <div style="width:100%;height:100%;display:flex;justify-content:center;align-items:center;background:#1e2a3a;">
+                        <img src="logo.png" alt="Αντωνακάκης Κατασκευαστική" style="max-width:80%;object-fit:contain;">
+                    </div>
+                    <div class="portfolio-overlay">
+                        <h3>Αντωνακάκης Κατασκευαστική</h3>
+                        <p>Web Design</p>
+                        <a href="https://antonakakis-kataskevastiki.gr/" target="_blank" class="btn btn-outline" style="padding:8px 18px;font-size:0.75rem;">ΕΠΙΣΚΕΨΗ <i class="fas fa-external-link-alt" style="margin-left:6px;font-size:0.7rem;"></i></a>
+                    </div>
+                </div>
+                <div class="portfolio-item fade-in-up delay-1">
+                    <img src="pptxRebuilder.png" alt="PPTX Text Rebuilder">
+                    <div class="portfolio-overlay">
+                        <h3>PPTX Text Rebuilder</h3>
+                        <p>AI Automation App</p>
+                        <button class="btn btn-outline open-lightbox" style="padding:8px 18px;font-size:0.75rem;">ΠΡΟΒΟΛΗ</button>
+                    </div>
+                </div>
+                <div class="portfolio-item fade-in-up delay-2">
+                    <img src="srtgenerator.png" alt="AI Subtitle Generator">
+                    <div class="portfolio-overlay">
+                        <h3>AI Subtitle Generator</h3>
+                        <p>AI Automation App</p>
+                        <button class="btn btn-outline open-lightbox" style="padding:8px 18px;font-size:0.75rem;">ΠΡΟΒΟΛΗ</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info fade-in-up">
+                    <h2 class="section-title" style="text-align:left;margin-bottom:20px;">Επικοινωνία</h2>
+                    <p>Έχεις ένα project στο μυαλό σου; Ας μιλήσουμε και ας το κάνουμε πραγματικότητα. Απαντάμε συνήθως εντός 24 ωρών.</p>
+                    <div class="contact-details">
+                        <div class="contact-detail-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>webdevmarkozanis@gmail.com</span>
+                        </div>
+                        <div class="contact-detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Ελλάδα — Εξ' αποστάσεως σε όλη την Ευρώπη</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-cta fade-in-up delay-1">
+                    <h3>Ξεκινάμε;</h3>
+                    <p>Στείλε email και λαμβάνεις δωρεάν εκτίμηση για το project σου.</p>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=webdevmarkozanis@gmail.com" target="_blank" class="btn" style="width:100%;padding:16px;">
+                        <i class="fas fa-paper-plane" style="margin-right:10px;"></i>ΣΤΕΙΛΤΕ EMAIL
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-logo">
+                    <span>DEVMARK</span>
+                </div>
+                <div class="footer-links">
+                    <a href="#services">Υπηρεσίες</a>
+                    <a href="#pricing">Πακέτα</a>
+                    <a href="#portfolio">Έργα</a>
+                    <a href="#contact">Επικοινωνία</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Devmark. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- LIGHTBOX -->
+    <div id="lightbox" class="lightbox-overlay">
+        <span class="lightbox-close" id="lightbox-close">&times;</span>
+        <img src="" alt="Preview">
+    </div>
+
+    <!-- FLOATING EMAIL BUTTON -->
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=webdevmarkozanis@gmail.com" target="_blank" class="fab-btn" title="Επικοινωνήστε μαζί μας">
+        <i class="fas fa-envelope"></i>
+    </a>
+
+    <script>
+    (function () {
+        // SCROLL PROGRESS BAR
+        const progressBar = document.getElementById('progress-bar');
+        window.addEventListener('scroll', () => {
+            const s = document.documentElement.scrollTop;
+            const h = document.documentElement.scrollHeight - window.innerHeight;
+            progressBar.style.width = (s / h * 100) + '%';
+        });
+
+        // HEADER SHRINK
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 60);
+        });
+
+        // HAMBURGER MENU
+        const hamburger = document.getElementById('hamburger');
+        const mobileNav = document.getElementById('mobileNav');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('open');
+            mobileNav.classList.toggle('open');
+            document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+        });
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('open');
+                mobileNav.classList.remove('open');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // FADE IN OBSERVER
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+
+        // COUNTER ANIMATION
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                const el = entry.target;
+                const target = parseInt(el.dataset.target);
+                let count = 0;
+                const step = Math.ceil(target / 40);
+                const timer = setInterval(() => {
+                    count = Math.min(count + step, target);
+                    el.textContent = count + '+';
+                    if (count >= target) clearInterval(timer);
+                }, 40);
+                counterObserver.unobserve(el);
+            });
+        }, { threshold: 0.5 });
+        document.querySelectorAll('.stat-number').forEach(el => counterObserver.observe(el));
+
+        // TYPEWRITER
+        const phrases = [
+            'ΣΧΕΔΙΑΣΜΟΣ WEB',
+            'ΕΦΑΡΜΟΓΕΣ AI',
+            'BRANDING & LOGO',
+            'ΥΠΟΣΤΗΡΙΞΗ 360°'
+        ];
+        let pIdx = 0, cIdx = 0, deleting = false;
+        const tw = document.getElementById('typewriter');
+        function type() {
+            const phrase = phrases[pIdx];
+            if (!deleting) {
+                tw.textContent = phrase.slice(0, ++cIdx);
+                if (cIdx === phrase.length) {
+                    deleting = true;
+                    setTimeout(type, 1800);
+                    return;
+                }
+            } else {
+                tw.textContent = phrase.slice(0, --cIdx);
+                if (cIdx === 0) {
+                    deleting = false;
+                    pIdx = (pIdx + 1) % phrases.length;
+                }
+            }
+            setTimeout(type, deleting ? 45 : 85);
+        }
+        setTimeout(type, 800);
+
+        // CANVAS PARTICLE ANIMATION
+        const canvas = document.getElementById('hero-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let W, H;
+
+        function resize() {
+            W = canvas.width = window.innerWidth;
+            H = canvas.height = window.innerHeight;
+        }
+        resize();
+        window.addEventListener('resize', resize);
+
+        function Particle() {
+            this.x = Math.random() * W;
+            this.y = Math.random() * H;
+            this.r = Math.random() * 1.4 + 0.4;
+            this.vx = (Math.random() - 0.5) * 0.4;
+            this.vy = (Math.random() - 0.5) * 0.4;
+            this.alpha = Math.random() * 0.5 + 0.1;
+        }
+
+        const particleCount = window.innerWidth < 768 ? 40 : 90;
+        for (let i = 0; i < particleCount; i++) particles.push(new Particle());
+
+        function drawParticles() {
+            ctx.clearRect(0, 0, W, H);
+            particles.forEach(p => {
+                p.x += p.vx;
+                p.y += p.vy;
+                if (p.x < 0) p.x = W;
+                if (p.x > W) p.x = 0;
+                if (p.y < 0) p.y = H;
+                if (p.y > H) p.y = 0;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(25,140,140,${p.alpha})`;
+                ctx.fill();
+            });
+
+            // Connect nearby particles
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 120) {
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.strokeStyle = `rgba(25,140,140,${0.12 * (1 - dist / 120)})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(drawParticles);
+        }
+        drawParticles();
+
+        // LIGHTBOX
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = lightbox.querySelector('img');
+        document.querySelectorAll('.open-lightbox').forEach(btn => {
+            btn.addEventListener('click', function () {
+                lightboxImg.src = this.closest('.portfolio-item').querySelector('img').src;
+                lightbox.classList.add('active');
+            });
+        });
+        document.getElementById('lightbox-close').addEventListener('click', () => lightbox.classList.remove('active'));
+        lightbox.addEventListener('click', e => { if (e.target === lightbox) lightbox.classList.remove('active'); });
+
+        // ACTIVE NAV LINK ON SCROLL
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('nav a');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(s => {
+                if (window.scrollY >= s.offsetTop - 150) current = s.id;
+            });
+            navLinks.forEach(a => {
+                a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+            });
+        });
+    })();
+    </script>
+</body>
+</html>
