@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Web Applications - Devmark</title>
+    <meta name="description" content="Εξειδικευμένες εφαρμογές με ενσωμάτωση Τεχνητής Νοημοσύνης για αυτοματοποίηση της επιχείρησής σου.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="tech-bg">
+        <div class="tech-grid"></div>
+        <canvas id="bg-canvas"></canvas>
+        <div class="tech-vignette"></div>
+    </div>
+
+    <!-- MOBILE NAV OVERLAY -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="index.html" class="mobile-link nav-link" data-el="Αρχική" data-en="Home">Αρχική</a>
+        <a href="services.html" class="mobile-link nav-link" data-el="Υπηρεσίες" data-en="Services">Υπηρεσίες</a>
+        <a href="contact.html" class="mobile-link nav-link" data-el="Επικοινωνία" data-en="Contact">Επικοινωνία</a>
+        <div class="lang-switch">
+            <button class="lang-btn" data-lang="el">ΕΛ</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+    </div>
+
+    <header id="header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">
+                <img src="devmarklogo.png" alt="Devmark Logo" class="logo-img">
+                <span>DEVMARK</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="nav-link" data-el="Αρχική" data-en="Home">Αρχική</a></li>
+                    <li><a href="services.html" class="nav-link" data-el="Υπηρεσίες" data-en="Services">Υπηρεσίες</a></li>
+                    <li><a href="contact.html" class="nav-link" data-el="Επικοινωνία" data-en="Contact">Επικοινωνία</a></li>
+                    <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=webdevmarkozanis@gmail.com" target="_blank" class="nav-cta" data-el="Ξεκινήστε" data-en="Get Started">Ξεκινήστε</a></li>
+                    <li>
+                        <div class="lang-switch">
+                            <button class="lang-btn" data-lang="el">ΕΛ</button>
+                            <button class="lang-btn" data-lang="en">EN</button>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+        <div class="container">
+            <a href="services.html" class="back-link fade-in-up"><i class="fas fa-arrow-left"></i> <span data-el="Όλες οι υπηρεσίες" data-en="All services">Όλες οι υπηρεσίες</span></a>
+            <div class="detail-hero-icon fade-in-up"><i class="fas fa-brain"></i></div>
+            <h2 class="section-title fade-in-up">AI Web Applications</h2>
+            <span class="section-subtitle fade-in-up" data-el="Εφαρμογές που αυτοματοποιούν τη δουλειά σου με Τεχνητή Νοημοσύνη" data-en="Applications that automate your work with Artificial Intelligence">Εφαρμογές που αυτοματοποιούν τη δουλειά σου με Τεχνητή Νοημοσύνη</span>
+        </div>
+    </section>
+
+    <section id="services" style="padding-top:0;">
+        <div class="container">
+            <p class="detail-intro fade-in-up" data-el="Σχεδιάζουμε και αναπτύσσουμε custom web εφαρμογές που ενσωματώνουν μοντέλα Τεχνητής Νοημοσύνης στην καθημερινή λειτουργία της επιχείρησής σου — από αυτοματοποίηση επαναλαμβανόμενων εργασιών μέχρι έξυπνη επεξεργασία δεδομένων, κειμένου, εικόνας ή ήχου. Το αποτέλεσμα είναι λιγότερος χειρωνακτικός κόπος και περισσότερος χρόνος για ό,τι έχει πραγματικά αξία." data-en="We design and build custom web applications that embed Artificial Intelligence models into your business's daily operations — from automating repetitive tasks to smart processing of data, text, images or audio. The result is less manual effort and more time for what truly matters.">
+                Σχεδιάζουμε και αναπτύσσουμε custom web εφαρμογές που ενσωματώνουν μοντέλα Τεχνητής Νοημοσύνης στην καθημερινή λειτουργία της επιχείρησής σου — από αυτοματοποίηση επαναλαμβανόμενων εργασιών μέχρι έξυπνη επεξεργασία δεδομένων, κειμένου, εικόνας ή ήχου. Το αποτέλεσμα είναι λιγότερος χειρωνακτικός κόπος και περισσότερος χρόνος για ό,τι έχει πραγματικά αξία.
+            </p>
+
+            <div class="detail-columns">
+                <div class="detail-block fade-in-up">
+                    <h3 data-el="Τι περιλαμβάνει" data-en="What's included">Τι περιλαμβάνει</h3>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i><span><strong data-el="Ανάλυση αναγκών:" data-en="Needs analysis:">Ανάλυση αναγκών:</strong> <span data-el="Χαρτογράφηση της ροής εργασίας σου και εντοπισμός σημείων αυτοματοποίησης." data-en="Mapping your workflow and identifying automation opportunities.">Χαρτογράφηση της ροής εργασίας σου και εντοπισμός σημείων αυτοματοποίησης.</span></span></li>
+                        <li><i class="fas fa-check"></i><span><strong data-el="Ενσωμάτωση AI μοντέλων:" data-en="AI model integration:">Ενσωμάτωση AI μοντέλων:</strong> <span data-el="Σύνδεση με κορυφαία μοντέλα (OpenAI, Anthropic κ.ά.) ή custom λύσεις." data-en="Connecting leading models (OpenAI, Anthropic, etc.) or custom solutions.">Σύνδεση με κορυφαία μοντέλα (OpenAI, Anthropic κ.ά.) ή custom λύσεις.</span></span></li>
+                        <li><i class="fas fa-check"></i><span><strong data-el="Automation flows:" data-en="Automation flows:">Automation flows:</strong> <span data-el="Ροές εργασίας που εξοικονομούν ώρες χειρωνακτικής δουλειάς κάθε εβδομάδα." data-en="Workflows that save hours of manual work every week.">Ροές εργασίας που εξοικονομούν ώρες χειρωνακτικής δουλειάς κάθε εβδομάδα.</span></span></li>
+                        <li><i class="fas fa-check"></i><span><strong data-el="Ασφάλεια δεδομένων:" data-en="Data security:">Ασφάλεια δεδομένων:</strong> <span data-el="Ασφαλής αποθήκευση και ενσωμάτωση με τα υπάρχοντα APIs / συστήματά σου." data-en="Secure storage and integration with your existing APIs / systems.">Ασφαλής αποθήκευση και ενσωμάτωση με τα υπάρχοντα APIs / συστήματά σου.</span></span></li>
+                        <li><i class="fas fa-check"></i><span><strong data-el="Testing & εκπαίδευση:" data-en="Testing & training:">Testing &amp; εκπαίδευση:</strong> <span data-el="Πλήρης έλεγχος και εκπαίδευση της ομάδας σου στη χρήση της εφαρμογής." data-en="Full testing and training for your team on using the application.">Πλήρης έλεγχος και εκπαίδευση της ομάδας σου στη χρήση της εφαρμογής.</span></span></li>
+                        <li><i class="fas fa-check"></i><span><strong data-el="Υποστήριξη:" data-en="Support:">Υποστήριξη:</strong> <span data-el="Τεχνική υποστήριξη και βελτιώσεις μετά την παράδοση." data-en="Technical support and improvements after delivery.">Τεχνική υποστήριξη και βελτιώσεις μετά την παράδοση.</span></span></li>
+                    </ul>
+                </div>
+                <div class="detail-block fade-in-up delay-1">
+                    <h3 data-el="Ενδεικτικές εφαρμογές" data-en="Example applications">Ενδεικτικές εφαρμογές</h3>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-robot"></i><span data-el="Chatbots εξυπηρέτησης πελατών με φυσική γλώσσα." data-en="Customer service chatbots with natural language.">Chatbots εξυπηρέτησης πελατών με φυσική γλώσσα.</span></li>
+                        <li><i class="fas fa-file-alt"></i><span data-el="Αυτόματη επεξεργασία & δημιουργία εγγράφων / περιεχομένου." data-en="Automatic processing & generation of documents / content.">Αυτόματη επεξεργασία &amp; δημιουργία εγγράφων / περιεχομένου.</span></li>
+                        <li><i class="fas fa-closed-captioning"></i><span data-el="Εργαλεία μετατροπής ήχου σε υπότιτλους/κείμενο." data-en="Tools for converting audio to subtitles/text.">Εργαλεία μετατροπής ήχου σε υπότιτλους/κείμενο.</span></li>
+                        <li><i class="fas fa-chart-line"></i><span data-el="Έξυπνα dashboards ανάλυσης δεδομένων." data-en="Smart data analytics dashboards.">Έξυπνα dashboards ανάλυσης δεδομένων.</span></li>
+                        <li><i class="fas fa-cogs"></i><span data-el="Custom εργαλεία αυτοματοποίησης εσωτερικών διαδικασιών." data-en="Custom internal process automation tools.">Custom εργαλεία αυτοματοποίησης εσωτερικών διαδικασιών.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 class="section-title fade-in-up" style="font-size:1.8rem;margin-bottom:40px;" data-el="Πώς δουλεύουμε" data-en="How we work">Πώς δουλεύουμε</h3>
+            <div class="process-steps">
+                <div class="process-step fade-in-up">
+                    <div class="step-num">01</div>
+                    <h4 data-el="Ανάλυση & Στρατηγική" data-en="Analysis & Strategy">Ανάλυση &amp; Στρατηγική</h4>
+                    <p data-el="Κατανοούμε τις ανάγκες σου και ορίζουμε τους στόχους του project." data-en="We understand your needs and define the project's goals.">Κατανοούμε τις ανάγκες σου και ορίζουμε τους στόχους του project.</p>
+                </div>
+                <div class="process-step fade-in-up delay-1">
+                    <div class="step-num">02</div>
+                    <h4 data-el="Σχεδιασμός Αρχιτεκτονικής" data-en="Architecture Design">Σχεδιασμός Αρχιτεκτονικής</h4>
+                    <p data-el="Σχεδιάζουμε τη ροή δεδομένων και επιλέγουμε τα κατάλληλα AI μοντέλα." data-en="We design the data flow and select the right AI models.">Σχεδιάζουμε τη ροή δεδομένων και επιλέγουμε τα κατάλληλα AI μοντέλα.</p>
+                </div>
+                <div class="process-step fade-in-up delay-2">
+                    <div class="step-num">03</div>
+                    <h4 data-el="Ανάπτυξη & AI Ενσωμάτωση" data-en="Development & AI Integration">Ανάπτυξη &amp; AI Ενσωμάτωση</h4>
+                    <p data-el="Χτίζουμε την εφαρμογή και ενσωματώνουμε την ευφυΐα στο πυρήνα της." data-en="We build the application and embed the intelligence into its core.">Χτίζουμε την εφαρμογή και ενσωματώνουμε την ευφυΐα στο πυρήνα της.</p>
+                </div>
+                <div class="process-step fade-in-up delay-3">
+                    <div class="step-num">04</div>
+                    <h4 data-el="Testing & Παράδοση" data-en="Testing & Delivery">Testing &amp; Παράδοση</h4>
+                    <p data-el="Ελέγχουμε, εκπαιδεύουμε την ομάδα σου και παραδίδουμε." data-en="We test, train your team and deliver.">Ελέγχουμε, εκπαιδεύουμε την ομάδα σου και παραδίδουμε.</p>
+                </div>
+            </div>
+
+            <div class="price-panel fade-in-up">
+                <span class="price-tag" data-el="από €500" data-en="from €500">από €500</span>
+                <p class="price-note" data-el="Το κόστος διαμορφώνεται ανάλογα με την πολυπλοκότητα της εφαρμογής." data-en="The cost is shaped according to the complexity of the application.">Το κόστος διαμορφώνεται ανάλογα με την πολυπλοκότητα της εφαρμογής.</p>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=webdevmarkozanis@gmail.com&su=Ενδιαφέρον για AI Web Applications" target="_blank" class="btn" style="width:100%;justify-content:center;" data-el="ΕΝΔΙΑΦΕΡΟΜΑΙ" data-en="I'M INTERESTED">ΕΝΔΙΑΦΕΡΟΜΑΙ</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-logo">
+                    <span>DEVMARK</span>
+                </div>
+                <div class="footer-links">
+                    <a href="services.html" data-el="Υπηρεσίες" data-en="Services">Υπηρεσίες</a>
+                    <a href="contact.html" data-el="Επικοινωνία" data-en="Contact">Επικοινωνία</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Devmark. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING EMAIL BUTTON -->
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=webdevmarkozanis@gmail.com" target="_blank" class="fab-btn" title="Επικοινωνήστε μαζί μας">
+        <i class="fas fa-envelope"></i>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>

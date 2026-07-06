@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Branding & Logo - Devmark</title>
+    <meta name="description" content="Δημιουργία εταιρικής ταυτότητας και επαγγελματικού λογοτύπου που ξεχωρίζει.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="tech-bg">
+        <div class="tech-grid"></div>
+        <canvas id="bg-canvas"></canvas>
+        <div class="tech-vignette"></div>
+    </div>
+
+    <!-- MOBILE NAV OVERLAY -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="index.html" class="mobile-link nav-link" data-el="Αρχική" data-en="Home">Αρχική</a>
+        <a href="services.html" class="mobile-link nav-link" data-el="Υπηρεσίες" data-en="Services">Υπηρεσίες</a>
+        <a href="contact.html" class="mobile-link nav-link" data-el="Επικοινωνία" data-en="Contact">Επικοινωνία</a>
+        <div class="lang-switch">
+            <button class="lang-btn" data-lang="el">ΕΛ</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+    </div>
+
+    <header id="header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">
+                <img src="devmarklogo.png" alt="Devmark Logo" class="logo-img">
+                <span>DEVMARK</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="nav-link" data-el="Αρχική" data-en="Home">Αρχική</a></li>
+                    <li><a href="services.html" class="nav-link" data-el="Υπηρεσίες" data-en="Services">Υπηρεσίες</a></li>
+                    <li><a href="contact.html" class="nav-link" data-el="Επικοινωνία" data-en="Contact">Επικοινωνία</a></li>
+                    <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=webdevmarkozanis@gmail.com" target="_blank" class="nav-cta" data-el="Ξεκινήστε" data-en="Get Started">Ξεκινήστε</a></li>
+                    <li>
+                        <div class="lang-switch">
+                            <button class="lang-btn" data-lang="el">ΕΛ</button>
+                            <button class="lang-btn" data-lang="en">EN</button>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+        <div class="container">
+            <a href="services.html" class="back-link fade-in-up"><i class="fas fa-arrow-left"></i> <span data-el="Όλες οι υπηρεσίες" data-en="All services">Όλες οι υπηρεσίες</span></a>
+            <div class="detail-hero-icon fade-in-up"><i class="fas fa-pen-nib"></i></div>
+            <h2 class="section-title fade-in-up">Branding &amp; Logo</h2>
+            <span class="section-subtitle fade-in-up" data-el="Εταιρική ταυτότητα και λογότυπο που ξεχωρίζει" data-en="Corporate identity and a logo that stands out">Εταιρική ταυτότητα και λογότυπο που ξεχωρίζει</span>
+        </div>
+    </section>
+
+    <section id="services" style="padding-top:0;">
+        <div class="container">
+            <p class="detail-intro fade-in-up" data-el="Το brand σου είναι η πρώτη εντύπωση που αφήνεις. Σχεδιάζουμε λογότυπα και εταιρική ταυτότητα που αντικατοπτρίζουν τις αξίες της επιχείρησής σου και σε κάνουν αναγνωρίσιμο — από την επαγγελματική κάρτα μέχρι την ιστοσελίδα σου." data-en="Your brand is the first impression you leave. We design logos and corporate identities that reflect your business's values and make you recognizable — from your business card to your website.">
+                Το brand σου είναι η πρώτη εντύπωση που αφήνεις. Σχεδιάζουμε λογότυπα και εταιρική ταυτότητα που αντικατοπτρίζουν τις αξίες της επιχείρησής σου και σε κάνουν αναγνωρίσιμο — από την επαγγελματική κάρτα μέχρι την ιστοσελίδα σου.
+            </p>
+
+            <div class="detail-columns">
+                <div class="detail-block fade-in-up">
+                    <h3 data-el="Τι περιλαμβάνει" data-en="What's included">Τι περιλαμβάνει</h3>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i><span><strong data-el="Έρευνα:" data-en="Research:">Έρευνα:</strong> <span data-el="Μελέτη του κλάδου και του ανταγωνισμού σου." data-en="Study of your industry and competitors.">Μελέτη του κλάδου και του ανταγωνισμού σου.</span></span></li>
+                        <li><i class="fas fa-check"></i><span><strong data-el="Σχεδιασμός λογοτύπου:" data-en="Logo design:">Σχεδιασμός λογοτύπου:</strong> <span data-el="Πολλαπλές αρχικές προτάσεις για να επιλέξεις." data-en="Multiple initial concepts for you to choose from.">Πολλαπλές αρχικές προτάσεις για να επιλέξεις.</span></span></li>
+                        <li><i class="fas fa-check"></i><span><strong data-el="Παλέτα & τυπογραφία:" data-en="Color palette & typography:">Παλέτα &amp; τυπογραφία:</strong> <span data-el="Χρώματα και γραμματοσειρές που ταιριάζουν στο brand σου." data-en="Colors and fonts that match your brand.">Χρώματα και γραμματοσειρές που ταιριάζουν στο brand σου.</span></span></li>
+                        <li><i class="fas fa-check"></i><span><strong data-el="Brand guidelines:" data-en="Brand guidelines:">Brand guidelines:</strong> <span data-el="Οδηγός σωστής χρήσης του λογοτύπου και της ταυτότητας." data-en="A guide for correct use of the logo and identity.">Οδηγός σωστής χρήσης του λογοτύπου και της ταυτότητας.</span></span></li>
+                        <li><i class="fas fa-check"></i><span><strong data-el="Αρχεία σε όλες τις μορφές:" data-en="Files in every format:">Αρχεία σε όλες τις μορφές:</strong> <span data-el="Vector, PNG και όλα όσα χρειάζεσαι για print & web." data-en="Vector, PNG and everything you need for print & web.">Vector, PNG και όλα όσα χρειάζεσαι για print &amp; web.</span></span></li>
+                    </ul>
+                </div>
+                <div class="detail-block fade-in-up delay-1">
+                    <h3 data-el="Κατάλληλο για" data-en="Ideal for">Κατάλληλο για</h3>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-rocket"></i><span data-el="Νέες επιχειρήσεις που χτίζουν την ταυτότητά τους από το μηδέν." data-en="New businesses building their identity from scratch.">Νέες επιχειρήσεις που χτίζουν την ταυτότητά τους από το μηδέν.</span></li>
+                        <li><i class="fas fa-arrows-rotate"></i><span data-el="Επιχειρήσεις που θέλουν rebranding ενός παλιού λογοτύπου." data-en="Businesses that want to rebrand an old logo.">Επιχειρήσεις που θέλουν rebranding ενός παλιού λογοτύπου.</span></li>
+                        <li><i class="fas fa-id-card"></i><span data-el="Επαγγελματίες που θέλουν πιο επαγγελματική εικόνα." data-en="Professionals who want a more professional image.">Επαγγελματίες που θέλουν πιο επαγγελματική εικόνα.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 class="section-title fade-in-up" style="font-size:1.8rem;margin-bottom:40px;" data-el="Πώς δουλεύουμε" data-en="How we work">Πώς δουλεύουμε</h3>
+            <div class="process-steps">
+                <div class="process-step fade-in-up">
+                    <div class="step-num">01</div>
+                    <h4 data-el="Γνωριμία" data-en="Discovery">Γνωριμία</h4>
+                    <p data-el="Μαθαίνουμε την ιστορία και τις αξίες της επιχείρησής σου." data-en="We learn your business's story and values.">Μαθαίνουμε την ιστορία και τις αξίες της επιχείρησής σου.</p>
+                </div>
+                <div class="process-step fade-in-up delay-1">
+                    <div class="step-num">02</div>
+                    <h4 data-el="Concepts" data-en="Concepts">Concepts</h4>
+                    <p data-el="Παρουσιάζουμε αρχικές προτάσεις λογοτύπου προς επιλογή." data-en="We present initial logo concepts for you to choose from.">Παρουσιάζουμε αρχικές προτάσεις λογοτύπου προς επιλογή.</p>
+                </div>
+                <div class="process-step fade-in-up delay-2">
+                    <div class="step-num">03</div>
+                    <h4 data-el="Τελειοποίηση" data-en="Refinement">Τελειοποίηση</h4>
+                    <p data-el="Βελτιώνουμε την επιλεγμένη πρόταση μέχρι να είναι τέλεια." data-en="We refine the chosen concept until it's perfect.">Βελτιώνουμε την επιλεγμένη πρόταση μέχρι να είναι τέλεια.</p>
+                </div>
+                <div class="process-step fade-in-up delay-3">
+                    <div class="step-num">04</div>
+                    <h4 data-el="Παράδοση" data-en="Delivery">Παράδοση</h4>
+                    <p data-el="Παραλαμβάνεις όλα τα αρχεία και τον οδηγό χρήσης." data-en="You receive all files and the usage guidelines.">Παραλαμβάνεις όλα τα αρχεία και τον οδηγό χρήσης.</p>
+                </div>
+            </div>
+
+            <div class="price-panel fade-in-up">
+                <span class="price-tag" data-el="από €35" data-en="from €35">από €35</span>
+                <p class="price-note" data-el="Το κόστος διαμορφώνεται ανάλογα με την έκταση του πακέτου ταυτότητας." data-en="The cost is shaped based on the scope of the identity package.">Το κόστος διαμορφώνεται ανάλογα με την έκταση του πακέτου ταυτότητας.</p>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=webdevmarkozanis@gmail.com&su=Ενδιαφέρον για Branding & Logo" target="_blank" class="btn" style="width:100%;justify-content:center;" data-el="ΕΝΔΙΑΦΕΡΟΜΑΙ" data-en="I'M INTERESTED">ΕΝΔΙΑΦΕΡΟΜΑΙ</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-logo">
+                    <span>DEVMARK</span>
+                </div>
+                <div class="footer-links">
+                    <a href="services.html" data-el="Υπηρεσίες" data-en="Services">Υπηρεσίες</a>
+                    <a href="contact.html" data-el="Επικοινωνία" data-en="Contact">Επικοινωνία</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Devmark. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING EMAIL BUTTON -->
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=webdevmarkozanis@gmail.com" target="_blank" class="fab-btn" title="Επικοινωνήστε μαζί μας">
+        <i class="fas fa-envelope"></i>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>

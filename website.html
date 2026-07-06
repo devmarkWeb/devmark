@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Κατασκευή Ιστοσελίδας - Devmark</title>
+    <meta name="description" content="Σχεδιασμός υψηλής αισθητικής και ταχύτητας, πλήρως προσαρμοσμένος στις ανάγκες σου.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="tech-bg">
+        <div class="tech-grid"></div>
+        <canvas id="bg-canvas"></canvas>
+        <div class="tech-vignette"></div>
+    </div>
+
+    <!-- MOBILE NAV OVERLAY -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="index.html" class="mobile-link nav-link" data-el="Αρχική" data-en="Home">Αρχική</a>
+        <a href="services.html" class="mobile-link nav-link" data-el="Υπηρεσίες" data-en="Services">Υπηρεσίες</a>
+        <a href="contact.html" class="mobile-link nav-link" data-el="Επικοινωνία" data-en="Contact">Επικοινωνία</a>
+        <div class="lang-switch">
+            <button class="lang-btn" data-lang="el">ΕΛ</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+    </div>
+
+    <header id="header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">
+                <img src="devmarklogo.png" alt="Devmark Logo" class="logo-img">
+                <span>DEVMARK</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="nav-link" data-el="Αρχική" data-en="Home">Αρχική</a></li>
+                    <li><a href="services.html" class="nav-link" data-el="Υπηρεσίες" data-en="Services">Υπηρεσίες</a></li>
+                    <li><a href="contact.html" class="nav-link" data-el="Επικοινωνία" data-en="Contact">Επικοινωνία</a></li>
+                    <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=webdevmarkozanis@gmail.com" target="_blank" class="nav-cta" data-el="Ξεκινήστε" data-en="Get Started">Ξεκινήστε</a></li>
+                    <li>
+                        <div class="lang-switch">
+                            <button class="lang-btn" data-lang="el">ΕΛ</button>
+                            <button class="lang-btn" data-lang="en">EN</button>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+        <div class="container">
+            <a href="services.html" class="back-link fade-in-up"><i class="fas fa-arrow-left"></i> <span data-el="Όλες οι υπηρεσίες" data-en="All services">Όλες οι υπηρεσίες</span></a>
+            <div class="detail-hero-icon fade-in-up"><i class="fas fa-desktop"></i></div>
+            <h2 class="section-title fade-in-up" data-el="Κατασκευή Ιστοσελίδας" data-en="Website Development">Κατασκευή Ιστοσελίδας</h2>
+            <span class="section-subtitle fade-in-up" data-el="Σχεδιασμός υψηλής αισθητικής, ταχύτητας & αποτελεσμάτων" data-en="High-end design, speed & results">Σχεδιασμός υψηλής αισθητικής, ταχύτητας &amp; αποτελεσμάτων</span>
+        </div>
+    </section>
+
+    <section id="services" style="padding-top:0;">
+        <div class="container">
+            <p class="detail-intro fade-in-up" data-el="Σχεδιάζουμε και αναπτύσσουμε ιστοσελίδες που δεν είναι απλώς όμορφες — είναι γρήγορες, εύχρηστες και φτιαγμένες να μετατρέπουν επισκέπτες σε πελάτες. Κάθε project είναι πλήρως custom, χωρίς έτοιμα templates, προσαρμοσμένο στην ταυτότητα και τους στόχους της επιχείρησής σου." data-en="We design and build websites that aren't just beautiful — they're fast, easy to use, and built to convert visitors into customers. Every project is fully custom, no off-the-shelf templates, tailored to your business's identity and goals.">
+                Σχεδιάζουμε και αναπτύσσουμε ιστοσελίδες που δεν είναι απλώς όμορφες — είναι γρήγορες, εύχρηστες και φτιαγμένες να μετατρέπουν επισκέπτες σε πελάτες. Κάθε project είναι πλήρως custom, χωρίς έτοιμα templates, προσαρμοσμένο στην ταυτότητα και τους στόχους της επιχείρησής σου.
+            </p>
+
+            <div class="detail-columns">
+                <div class="detail-block fade-in-up">
+                    <h3 data-el="Τι περιλαμβάνει" data-en="What's included">Τι περιλαμβάνει</h3>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i><span><strong data-el="Custom UI/UX σχεδιασμός:" data-en="Custom UI/UX design:">Custom UI/UX σχεδιασμός:</strong> <span data-el="Μοναδικό design προσαρμοσμένο στο brand σου, όχι έτοιμο template." data-en="Unique design tailored to your brand, not an off-the-shelf template.">Μοναδικό design προσαρμοσμένο στο brand σου, όχι έτοιμο template.</span></span></li>
+                        <li><i class="fas fa-check"></i><span><strong data-el="Πλήρως Responsive:" data-en="Fully Responsive:">Πλήρως Responsive:</strong> <span data-el="Άριστη εμφάνιση σε κινητό, tablet και desktop." data-en="Flawless display on mobile, tablet and desktop.">Άριστη εμφάνιση σε κινητό, tablet και desktop.</span></span></li>
+                        <li><i class="fas fa-check"></i><span><strong data-el="SEO-friendly δομή:" data-en="SEO-friendly structure:">SEO-friendly δομή:</strong> <span data-el="Σωστή τεχνική βάση για να σε βρίσκουν στη Google." data-en="Solid technical foundation to get you found on Google.">Σωστή τεχνική βάση για να σε βρίσκουν στη Google.</span></span></li>
+                        <li><i class="fas fa-check"></i><span><strong data-el="Ταχύτητα φόρτωσης:" data-en="Fast loading speed:">Ταχύτητα φόρτωσης:</strong> <span data-el="Βελτιστοποίηση εικόνων και κώδικα για άμεση απόκριση." data-en="Image and code optimization for instant response.">Βελτιστοποίηση εικόνων και κώδικα για άμεση απόκριση.</span></span></li>
+                        <li><i class="fas fa-check"></i><span><strong data-el="Φόρμες & Ενσωματώσεις:" data-en="Forms & Integrations:">Φόρμες &amp; Ενσωματώσεις:</strong> <span data-el="Φόρμες επικοινωνίας, κρατήσεων ή παραγγελιών όπως χρειάζεσαι." data-en="Contact, booking or order forms as you need them.">Φόρμες επικοινωνίας, κρατήσεων ή παραγγελιών όπως χρειάζεσαι.</span></span></li>
+                        <li><i class="fas fa-check"></i><span><strong data-el="Analytics & Search Console:" data-en="Analytics & Search Console:">Analytics &amp; Search Console:</strong> <span data-el="Ρύθμιση Google Analytics και Search Console από την πρώτη μέρα." data-en="Google Analytics and Search Console set up from day one.">Ρύθμιση Google Analytics και Search Console από την πρώτη μέρα.</span></span></li>
+                    </ul>
+                </div>
+                <div class="detail-block fade-in-up delay-1">
+                    <h3 data-el="Κατάλληλο για" data-en="Ideal for">Κατάλληλο για</h3>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-store"></i><span data-el="Επιχειρήσεις που θέλουν επαγγελματική παρουσία online." data-en="Businesses that want a professional online presence.">Επιχειρήσεις που θέλουν επαγγελματική παρουσία online.</span></li>
+                        <li><i class="fas fa-briefcase"></i><span data-el="Επαγγελματίες & ελεύθερους επαγγελματίες που θέλουν να προβάλλουν το έργο τους." data-en="Professionals & freelancers who want to showcase their work.">Επαγγελματίες &amp; ελεύθερους επαγγελματίες που θέλουν να προβάλλουν το έργο τους.</span></li>
+                        <li><i class="fas fa-shopping-cart"></i><span data-el="Καταστήματα που θέλουν e-shop ή σελίδα παρουσίασης προϊόντων." data-en="Stores that want an e-shop or product showcase page.">Καταστήματα που θέλουν e-shop ή σελίδα παρουσίασης προϊόντων.</span></li>
+                        <li><i class="fas fa-arrow-up-right-dots"></i><span data-el="Επιχειρήσεις που θέλουν αναβάθμιση μιας παλιάς ή αργής ιστοσελίδας." data-en="Businesses that want to upgrade an old or slow website.">Επιχειρήσεις που θέλουν αναβάθμιση μιας παλιάς ή αργής ιστοσελίδας.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 class="section-title fade-in-up" style="font-size:1.8rem;margin-bottom:40px;" data-el="Πώς δουλεύουμε" data-en="How we work">Πώς δουλεύουμε</h3>
+            <div class="process-steps">
+                <div class="process-step fade-in-up">
+                    <div class="step-num">01</div>
+                    <h4 data-el="Ανακάλυψη" data-en="Discovery">Ανακάλυψη</h4>
+                    <p data-el="Συζητάμε τους στόχους, το brand και το περιεχόμενο της σελίδας σου." data-en="We discuss your goals, brand and the site's content.">Συζητάμε τους στόχους, το brand και το περιεχόμενο της σελίδας σου.</p>
+                </div>
+                <div class="process-step fade-in-up delay-1">
+                    <div class="step-num">02</div>
+                    <h4 data-el="Σχεδιασμός" data-en="Design">Σχεδιασμός</h4>
+                    <p data-el="Ετοιμάζουμε το οπτικό concept και το εγκρίνεις πριν προχωρήσουμε." data-en="We prepare the visual concept and you approve it before we proceed.">Ετοιμάζουμε το οπτικό concept και το εγκρίνεις πριν προχωρήσουμε.</p>
+                </div>
+                <div class="process-step fade-in-up delay-2">
+                    <div class="step-num">03</div>
+                    <h4 data-el="Ανάπτυξη" data-en="Development">Ανάπτυξη</h4>
+                    <p data-el="Χτίζουμε τη σελίδα με καθαρό, γρήγορο και ασφαλή κώδικα." data-en="We build the site with clean, fast and secure code.">Χτίζουμε τη σελίδα με καθαρό, γρήγορο και ασφαλή κώδικα.</p>
+                </div>
+                <div class="process-step fade-in-up delay-3">
+                    <div class="step-num">04</div>
+                    <h4 data-el="Launch" data-en="Launch">Launch</h4>
+                    <p data-el="Δοκιμές, ρυθμίσεις SEO και δημοσίευση της σελίδας σου online." data-en="Testing, SEO setup and publishing your site online.">Δοκιμές, ρυθμίσεις SEO και δημοσίευση της σελίδας σου online.</p>
+                </div>
+            </div>
+
+            <div class="price-panel fade-in-up">
+                <span class="price-tag" data-el="από €299" data-en="from €299">από €299</span>
+                <p class="price-note" data-el="Το κόστος διαμορφώνεται ανάλογα με τον αριθμό σελίδων και τη λειτουργικότητα." data-en="The cost is shaped based on the number of pages and functionality.">Το κόστος διαμορφώνεται ανάλογα με τον αριθμό σελίδων και τη λειτουργικότητα.</p>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=webdevmarkozanis@gmail.com&su=Ενδιαφέρον για Κατασκευή Ιστοσελίδας" target="_blank" class="btn" style="width:100%;justify-content:center;" data-el="ΕΝΔΙΑΦΕΡΟΜΑΙ" data-en="I'M INTERESTED">ΕΝΔΙΑΦΕΡΟΜΑΙ</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-logo">
+                    <span>DEVMARK</span>
+                </div>
+                <div class="footer-links">
+                    <a href="services.html" data-el="Υπηρεσίες" data-en="Services">Υπηρεσίες</a>
+                    <a href="contact.html" data-el="Επικοινωνία" data-en="Contact">Επικοινωνία</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Devmark. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING EMAIL BUTTON -->
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=webdevmarkozanis@gmail.com" target="_blank" class="fab-btn" title="Επικοινωνήστε μαζί μας">
+        <i class="fas fa-envelope"></i>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>

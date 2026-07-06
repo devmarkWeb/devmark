@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Υπηρεσίες - Devmark</title>
+    <meta name="description" content="AI Web Applications, κατασκευή ιστοσελίδας, branding & logo. Δείτε αναλυτικά τις υπηρεσίες της Devmark.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .card-arrow {
+            width: 38px; height: 38px;
+            border-radius: 50%;
+            background: rgba(30,163,163,0.12);
+            color: var(--teal);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+        .service-card:hover .card-arrow {
+            background: var(--teal);
+            color: var(--white);
+            transform: translateX(4px);
+        }
+        a.service-card { cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <div class="tech-bg">
+        <div class="tech-grid"></div>
+        <canvas id="bg-canvas"></canvas>
+        <div class="tech-vignette"></div>
+    </div>
+
+    <!-- MOBILE NAV OVERLAY -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="index.html" class="mobile-link nav-link" data-el="Αρχική" data-en="Home">Αρχική</a>
+        <a href="services.html" class="mobile-link nav-link" data-el="Υπηρεσίες" data-en="Services">Υπηρεσίες</a>
+        <a href="contact.html" class="mobile-link nav-link" data-el="Επικοινωνία" data-en="Contact">Επικοινωνία</a>
+        <div class="lang-switch">
+            <button class="lang-btn" data-lang="el">ΕΛ</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+    </div>
+
+    <header id="header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">
+                <img src="devmarklogo.png" alt="Devmark Logo" class="logo-img">
+                <span>DEVMARK</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="nav-link" data-el="Αρχική" data-en="Home">Αρχική</a></li>
+                    <li><a href="services.html" class="nav-link" data-el="Υπηρεσίες" data-en="Services">Υπηρεσίες</a></li>
+                    <li><a href="contact.html" class="nav-link" data-el="Επικοινωνία" data-en="Contact">Επικοινωνία</a></li>
+                    <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=webdevmarkozanis@gmail.com" target="_blank" class="nav-cta" data-el="Ξεκινήστε" data-en="Get Started">Ξεκινήστε</a></li>
+                    <li>
+                        <div class="lang-switch">
+                            <button class="lang-btn" data-lang="el">ΕΛ</button>
+                            <button class="lang-btn" data-lang="en">EN</button>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+        <div class="container">
+            <span class="eyebrow fade-in-up" data-el="Τι κάνουμε" data-en="What we do">Τι κάνουμε</span>
+            <h2 class="section-title fade-in-up" data-el="Υπηρεσίες" data-en="Services">Υπηρεσίες</h2>
+            <span class="section-subtitle fade-in-up" style="margin-bottom:0;" data-el="Πάτησε σε μία υπηρεσία για αναλυτική περιγραφή" data-en="Click a service for a detailed description">Πάτησε σε μία υπηρεσία για αναλυτική περιγραφή</span>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+        <div class="container" style="padding-top:0;">
+            <div class="services-grid">
+                <a href="ai-web-apps.html" class="service-card fade-in-up">
+                    <div class="service-icon"><i class="fas fa-brain"></i></div>
+                    <h3>AI Web Applications</h3>
+                    <p data-el="Εξειδικευμένες εφαρμογές με ενσωμάτωση Τεχνητής Νοημοσύνης για την αυτοματοποίηση της επιχείρησής σου." data-en="Specialized applications with integrated Artificial Intelligence to automate your business.">Εξειδικευμένες εφαρμογές με ενσωμάτωση Τεχνητής Νοημοσύνης για την αυτοματοποίηση της επιχείρησής σου.</p>
+                    <div class="service-card-footer">
+                        <div class="price-tag" data-el="από €500" data-en="from €500">από €500</div>
+                        <span class="card-arrow"><i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+                <a href="website.html" class="service-card fade-in-up delay-1">
+                    <div class="service-icon"><i class="fas fa-desktop"></i></div>
+                    <h3 data-el="Κατασκευή Ιστοσελίδας" data-en="Website Development">Κατασκευή Ιστοσελίδας</h3>
+                    <p data-el="Σχεδιασμός υψηλής αισθητικής και ταχύτητας, πλήρως προσαρμοσμένος στις ανάγκες σου." data-en="High-end, fast design, fully tailored to your needs.">Σχεδιασμός υψηλής αισθητικής και ταχύτητας, πλήρως προσαρμοσμένος στις ανάγκες σου.</p>
+                    <div class="service-card-footer">
+                        <div class="price-tag" data-el="από €299" data-en="from €299">από €299</div>
+                        <span class="card-arrow"><i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+                <a href="branding.html" class="service-card fade-in-up delay-2">
+                    <div class="service-icon"><i class="fas fa-pen-nib"></i></div>
+                    <h3>Branding &amp; Logo</h3>
+                    <p data-el="Δημιουργία εταιρικής ταυτότητας και επαγγελματικού λογοτύπου που ξεχωρίζει." data-en="Creating a corporate identity and a professional logo that stands out.">Δημιουργία εταιρικής ταυτότητας και επαγγελματικού λογοτύπου που ξεχωρίζει.</p>
+                    <div class="service-card-footer">
+                        <div class="price-tag" data-el="από €35" data-en="from €35">από €35</div>
+                        <span class="card-arrow"><i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section id="cta-banner" style="padding-top:0;">
+        <div class="container">
+            <div class="cta-panel fade-in-up">
+                <h2 data-el="Δεν ξέρεις ποια υπηρεσία σου ταιριάζει;" data-en="Not sure which service fits you?">Δεν ξέρεις ποια υπηρεσία σου ταιριάζει;</h2>
+                <p data-el="Στείλε μας δύο λόγια για το project σου και θα σου προτείνουμε την καλύτερη λύση, χωρίς δεσμεύσεις." data-en="Send us a few words about your project and we'll suggest the best solution, no strings attached.">Στείλε μας δύο λόγια για το project σου και θα σου προτείνουμε την καλύτερη λύση, χωρίς δεσμεύσεις.</p>
+                <div class="cta-actions">
+                    <a href="contact.html" class="btn" data-el="ΕΠΙΚΟΙΝΩΝΙΑ" data-en="CONTACT">ΕΠΙΚΟΙΝΩΝΙΑ</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-logo">
+                    <span>DEVMARK</span>
+                </div>
+                <div class="footer-links">
+                    <a href="services.html" data-el="Υπηρεσίες" data-en="Services">Υπηρεσίες</a>
+                    <a href="contact.html" data-el="Επικοινωνία" data-en="Contact">Επικοινωνία</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Devmark. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING EMAIL BUTTON -->
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=webdevmarkozanis@gmail.com" target="_blank" class="fab-btn" title="Επικοινωνήστε μαζί μας">
+        <i class="fas fa-envelope"></i>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
