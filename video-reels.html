@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Διαφημιστικό Video Reel - Devmark</title>
+    <meta name="description" content="Δημιουργία δυναμικών διαφημιστικών video reel για social media που τραβούν την προσοχή και προωθούν την επιχείρησή σου.">
+    <link rel="canonical" href="https://devmark.gr/video-reels.html">
+    <link rel="icon" type="image/png" href="devmarklogo.png">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="el_GR">
+    <meta property="og:site_name" content="Devmark">
+    <meta property="og:title" content="Διαφημιστικό Video Reel - Devmark">
+    <meta property="og:description" content="Δημιουργία δυναμικών διαφημιστικών video reel για social media που τραβούν την προσοχή και προωθούν την επιχείρησή σου.">
+    <meta property="og:url" content="https://devmark.gr/video-reels.html">
+    <meta property="og:image" content="https://devmark.gr/devmarklogo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Διαφημιστικό Video Reel - Devmark">
+    <meta name="twitter:description" content="Δημιουργία δυναμικών διαφημιστικών video reel για social media που τραβούν την προσοχή και προωθούν την επιχείρησή σου.">
+    <meta name="twitter:image" content="https://devmark.gr/devmarklogo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="tech-bg">
+        <div class="tech-grid"></div>
+        <canvas id="bg-canvas"></canvas>
+        <div class="tech-vignette"></div>
+    </div>
+
+    <!-- MOBILE NAV OVERLAY -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="index.html" class="mobile-link nav-link" data-el="Αρχική" data-en="Home">Αρχική</a>
+        <a href="services.html" class="mobile-link nav-link" data-el="Υπηρεσίες" data-en="Services">Υπηρεσίες</a>
+        <a href="contact.html" class="mobile-link nav-link" data-el="Επικοινωνία" data-en="Contact">Επικοινωνία</a>
+        <div class="lang-switch">
+            <button class="lang-btn" data-lang="el">ΕΛ</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+    </div>
+
+    <header id="header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">
+                <img src="devmarklogo.png" alt="Devmark Logo" class="logo-img">
+                <span>DEVMARK</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="nav-link" data-el="Αρχική" data-en="Home">Αρχική</a></li>
+                    <li><a href="services.html" class="nav-link" data-el="Υπηρεσίες" data-en="Services">Υπηρεσίες</a></li>
+                    <li><a href="contact.html" class="nav-link" data-el="Επικοινωνία" data-en="Contact">Επικοινωνία</a></li>
+                    <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@devmark.gr" target="_blank" class="nav-cta" data-el="Ξεκινήστε" data-en="Get Started">Ξεκινήστε</a></li>
+                    <li>
+                        <div class="lang-switch">
+                            <button class="lang-btn" data-lang="el">ΕΛ</button>
+                            <button class="lang-btn" data-lang="en">EN</button>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+        <div class="container">
+            <a href="services.html" class="back-link fade-in-up"><i class="fas fa-arrow-left"></i> <span data-el="Όλες οι υπηρεσίες" data-en="All services">Όλες οι υπηρεσίες</span></a>
+            <div class="detail-hero-icon fade-in-up"><i class="fas fa-video"></i></div>
+            <h2 class="section-title fade-in-up" data-el="Διαφημιστικό Video Reel" data-en="Social Media Video Reel">Διαφημιστικό Video Reel</h2>
+            <span class="section-subtitle fade-in-up" data-el="Δυναμικά βίντεο για social media που τραβούν την προσοχή" data-en="Dynamic social media videos that grab attention">Δυναμικά βίντεο για social media που τραβούν την προσοχή</span>
+        </div>
+    </section>
+
+    <section id="services" style="padding-top:0;">
+        <div class="container">
+            <p class="detail-intro fade-in-up" data-el="Δημιουργούμε σύντομα, δυναμικά video reels για social media που παρουσιάζουν την επιχείρησή σου, τα προϊόντα ή τις υπηρεσίες σου με τρόπο που σταματάει το scroll. Ιδανικά για Instagram, TikTok και Facebook." data-en="We create short, dynamic video reels for social media that showcase your business, products or services in a way that stops the scroll. Ideal for Instagram, TikTok and Facebook.">
+                Δημιουργούμε σύντομα, δυναμικά video reels για social media που παρουσιάζουν την επιχείρησή σου, τα προϊόντα ή τις υπηρεσίες σου με τρόπο που σταματάει το scroll. Ιδανικά για Instagram, TikTok και Facebook.
+            </p>
+
+            <div class="detail-columns">
+                <div class="detail-block fade-in-up">
+                    <h3 data-el="Τι περιλαμβάνει" data-en="What's included">Τι περιλαμβάνει</h3>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i><span><strong data-el="Σενάριο & Storyboard:" data-en="Script & Storyboard:">Σενάριο &amp; Storyboard:</strong> <span data-el="Σχεδιασμός ιδέας και ροής του βίντεο πριν την παραγωγή." data-en="Planning the concept and flow of the video before production.">Σχεδιασμός ιδέας και ροής του βίντεο πριν την παραγωγή.</span></span></li>
+                        <li><i class="fas fa-check"></i><span><strong data-el="Μοντάζ & Εφέ:" data-en="Editing & Effects:">Μοντάζ &amp; Εφέ:</strong> <span data-el="Επαγγελματικό μοντάζ με μεταβάσεις, εφέ και μουσική υπόκρουση." data-en="Professional editing with transitions, effects and background music.">Επαγγελματικό μοντάζ με μεταβάσεις, εφέ και μουσική υπόκρουση.</span></span></li>
+                        <li><i class="fas fa-check"></i><span><strong data-el="Υπότιτλοι & Γραφικά:" data-en="Subtitles & Graphics:">Υπότιτλοι &amp; Γραφικά:</strong> <span data-el="Κινούμενοι υπότιτλοι και γραφικά για μεγαλύτερη αφοσίωση." data-en="Animated subtitles and graphics for higher engagement.">Κινούμενοι υπότιτλοι και γραφικά για μεγαλύτερη αφοσίωση.</span></span></li>
+                        <li><i class="fas fa-check"></i><span><strong data-el="Βελτιστοποίηση για Social Media:" data-en="Social Media Optimization:">Βελτιστοποίηση για Social Media:</strong> <span data-el="Σωστές διαστάσεις και format για Reels, Stories και Shorts." data-en="Correct dimensions and format for Reels, Stories and Shorts.">Σωστές διαστάσεις και format για Reels, Stories και Shorts.</span></span></li>
+                        <li><i class="fas fa-check"></i><span><strong data-el="Γρήγορη Παράδοση:" data-en="Fast Delivery:">Γρήγορη Παράδοση:</strong> <span data-el="Παραλαμβάνεις το τελικό βίντεο σε λίγες μέρες." data-en="You receive the final video within a few days.">Παραλαμβάνεις το τελικό βίντεο σε λίγες μέρες.</span></span></li>
+                    </ul>
+                </div>
+                <div class="detail-block fade-in-up delay-1">
+                    <h3 data-el="Κατάλληλο για" data-en="Ideal for">Κατάλληλο για</h3>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-store"></i><span data-el="Επιχειρήσεις που θέλουν να αυξήσουν την παρουσία τους στα social media." data-en="Businesses that want to grow their social media presence.">Επιχειρήσεις που θέλουν να αυξήσουν την παρουσία τους στα social media.</span></li>
+                        <li><i class="fas fa-shopping-cart"></i><span data-el="Καταστήματα που θέλουν να προβάλλουν προϊόντα με δυναμικό τρόπο." data-en="Stores that want to showcase products in a dynamic way.">Καταστήματα που θέλουν να προβάλλουν προϊόντα με δυναμικό τρόπο.</span></li>
+                        <li><i class="fas fa-id-card"></i><span data-el="Επαγγελματίες που θέλουν να χτίσουν προσωπικό brand online." data-en="Professionals who want to build a personal brand online.">Επαγγελματίες που θέλουν να χτίσουν προσωπικό brand online.</span></li>
+                        <li><i class="fas fa-bullhorn"></i><span data-el="Events ή προσφορές που χρειάζονται γρήγορη προώθηση." data-en="Events or offers that need quick promotion.">Events ή προσφορές που χρειάζονται γρήγορη προώθηση.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 class="section-title fade-in-up" style="font-size:1.8rem;margin-bottom:40px;" data-el="Πώς δουλεύουμε" data-en="How we work">Πώς δουλεύουμε</h3>
+            <div class="process-steps">
+                <div class="process-step fade-in-up">
+                    <div class="step-num">01</div>
+                    <h4 data-el="Ιδέα & Σενάριο" data-en="Idea & Script">Ιδέα &amp; Σενάριο</h4>
+                    <p data-el="Συζητάμε το μήνυμα και σχεδιάζουμε το σενάριο του βίντεο." data-en="We discuss the message and plan the video's script.">Συζητάμε το μήνυμα και σχεδιάζουμε το σενάριο του βίντεο.</p>
+                </div>
+                <div class="process-step fade-in-up delay-1">
+                    <div class="step-num">02</div>
+                    <h4 data-el="Συλλογή Υλικού" data-en="Footage Collection">Συλλογή Υλικού</h4>
+                    <p data-el="Συγκεντρώνουμε video/φωτογραφικό υλικό ή stock footage." data-en="We gather video/photo material or stock footage.">Συγκεντρώνουμε video/φωτογραφικό υλικό ή stock footage.</p>
+                </div>
+                <div class="process-step fade-in-up delay-2">
+                    <div class="step-num">03</div>
+                    <h4 data-el="Μοντάζ" data-en="Editing">Μοντάζ</h4>
+                    <p data-el="Επεξεργαζόμαστε το βίντεο με εφέ, μουσική και υπότιτλους." data-en="We edit the video with effects, music and subtitles.">Επεξεργαζόμαστε το βίντεο με εφέ, μουσική και υπότιτλους.</p>
+                </div>
+                <div class="process-step fade-in-up delay-3">
+                    <div class="step-num">04</div>
+                    <h4 data-el="Παράδοση" data-en="Delivery">Παράδοση</h4>
+                    <p data-el="Σου παραδίδουμε το βίντεο σε format έτοιμο για social media." data-en="We deliver the video in a format ready for social media.">Σου παραδίδουμε το βίντεο σε format έτοιμο για social media.</p>
+                </div>
+            </div>
+
+            <div class="price-panel fade-in-up">
+                <span class="price-tag" data-el="από €25" data-en="from €25">από €25</span>
+                <p class="price-note" data-el="Το κόστος διαμορφώνεται ανάλογα με τη διάρκεια και την πολυπλοκότητα του βίντεο." data-en="The cost is shaped based on the video's length and complexity.">Το κόστος διαμορφώνεται ανάλογα με τη διάρκεια και την πολυπλοκότητα του βίντεο.</p>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@devmark.gr&su=Ενδιαφέρον για Διαφημιστικό Video Reel" target="_blank" class="btn" style="width:100%;justify-content:center;" data-el="ΕΝΔΙΑΦΕΡΟΜΑΙ" data-en="I'M INTERESTED">ΕΝΔΙΑΦΕΡΟΜΑΙ</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-logo">
+                    <span>DEVMARK</span>
+                </div>
+                <div class="footer-links">
+                    <a href="services.html" data-el="Υπηρεσίες" data-en="Services">Υπηρεσίες</a>
+                    <a href="contact.html" data-el="Επικοινωνία" data-en="Contact">Επικοινωνία</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Devmark. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING EMAIL BUTTON -->
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@devmark.gr" target="_blank" class="fab-btn" title="Επικοινωνήστε μαζί μας">
+        <i class="fas fa-envelope"></i>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
